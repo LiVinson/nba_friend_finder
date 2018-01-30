@@ -1,3 +1,5 @@
+console.log("friends!");
+
 var nbaMatches = [
     {
         name: "Lebron James",
@@ -15,37 +17,37 @@ var nbaMatches = [
     {
         name: "Russell Westbrook",
         image: "../public/assets/images/irving.png/",
-        scores: [4, 2, 5, 2, 3, 5, 5, 1, 4, 5] //
+        scores: [1, 2, 3, 2, 1, 4, 2, 3, 5, 2] //
     },
     {
         name: "Stephen Curry",
         image: "../public/assets/images/irving.png/",
-        scores: [4, 2, 5, 2, 3, 5, 5, 1, 4, 5] //
+        scores: [4, 1, 2, 1, 4, 5, 2, 3, 1, 2] //
     },
     {
         name: "Kawhi Leonard",
         image: "../public/assets/images/irving.png/",
-        scores: [4, 2, 5, 2, 3, 5, 5, 1, 4, 5] //
+        scores: [2, 5, 1, 2, 1, 2, 4, 2, 1, 3] //
     },
     {
         name: "Lonzo Ball",
         image: "../public/assets/images/irving.png/",
-        scores: [4, 2, 5, 2, 3, 5, 5, 1, 4, 5] //
+        scores: [1, 4, 2, 3, 2, 4, 1, 2, 1, 3] //
     },
     {
         name: "James Harden",
         image: "../public/assets/images/irving.png/",
-        scores: [4, 2, 5, 2, 3, 5, 5, 1, 4, 5] //
+        scores: [2, 5, 2, 4, 1, 2, 5, 1, 3, 3] //
     },
     {
         name: "Kristaps Porzingis",
         image: "../public/assets/images/irving.png/",
-        scores: [4, 2, 5, 2, 3, 5, 5, 1, 4, 5]  //
+        scores: [3, 1, 5, 3, 1, 2, 4, 4, 2, 1]  //
     },
     {
         name: "Giannis Antetokounmpo",
         image: "../public/assets/images/irving.png/",
-        scores: [4, 2, 5, 2, 3, 5, 5, 1, 4, 5] //
+        scores: [1, 4, 5, 2, 3, 1, 2, 4, 1, 2] //
     },
 ];
 
@@ -72,6 +74,11 @@ function findMatch(userScores) {
 });
 console.log(userMatch);
 
+$.post("/api/friends", function(data) {
+
+    console.log(data)
+})
+
 };
 
 
@@ -92,12 +99,11 @@ $(".submitBtn").on("click", function (event) {
          $("#question10").val().substr(0,1),
         ]);
 
-        console.log(userSurvey);
-        //Compare userData to each array in nbaMatches array
+        //add steps to put form back to default
 
+        console.log(userSurvey);
+
+        //Compare userData to each array in nbaMatches array
         findMatch(userSurvey);       
 });
 
-// $(".startQuiz").on("click", function (event) {
-//     $.get("/survey", function (res, req))
-// }
