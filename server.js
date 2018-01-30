@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 // Express.static will allow you to set a static directory for things like your
 // front end javascript, images, etc
 // ================================================================================
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/app/public"));
 
 // ================================================================================
 // ROUTER
