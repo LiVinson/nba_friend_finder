@@ -58,8 +58,9 @@ module.exports = function (app) {
         });
 
         app.post("/api/friends", function (req, res){
-            var userMatch = req.body;
-            res.json(userMatch.name);
+            var playerMatch = req.body;
+            console.log(`Request received from post : ${JSON.stringify(playerMatch)}`);
+            res.json(playerMatch);
 
         })
 
