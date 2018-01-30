@@ -60,6 +60,9 @@ module.exports = function (app) {
         app.post("/api/friends", function (req, res){
             var playerMatch = req.body;
             console.log(`Request received from post : ${JSON.stringify(playerMatch)}`);
+            playerMatch.imageURL = path.join(__dirname, playerMatch.imageURL)
+
+            console.log("New URL" + playerMatch.imageURL)
             res.json(playerMatch);
 
         })
