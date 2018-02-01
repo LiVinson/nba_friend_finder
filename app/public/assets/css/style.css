@@ -1,6 +1,52 @@
 body {
-    background-color: lightblue
+    background-color:cornsilk
 }
+
+
+/* Jumbotron */
+.jumbotron {
+    background: #1D428A;
+    border-radius: 0 !important;
+    padding-top:30px;
+    padding-bottom:40px;
+    padding-left:40px;
+    padding-right:40px;
+}
+
+#jumboTitle{
+    font-family: 'Lobster', cursive;
+    color:red;
+    text-align:center;
+
+}
+
+#nbaEdition {
+    font-family: Impact, Charcoal, sans-serif;
+    color:white;
+}
+
+#subTitle{
+    color:white;
+    font-size:24px;
+}
+
+.redFont{
+    color:red;
+}
+
+.startQuiz{
+    margin: 0 auto;
+}
+/* Home Image Rows */
+
+.row1, .row2{
+    margin-bottom: 15px;
+}
+.imageHolder{
+    width:33%;
+}
+
+/* Survey Page */
 
 .formPanel{
     margin-left:25px;
@@ -10,15 +56,6 @@ body {
 .surveyPanel{
     padding-left:25px;
     padding-right:25px
-}
-
-.imageHolder{
-    width:33%;
-}
-
-.img_wrapper{
-    width: 80%;
-    margin:auto;
 }
 
 form label{
@@ -33,3 +70,15 @@ form label{
     width:50%;
 }
 
+/* Footer */
+.footer{
+    background-color:red;
+    height:50px;
+    padding-top:10px;
+}
+
+.footerText{
+    text-align:center;
+    font-size: 16px;
+
+}
