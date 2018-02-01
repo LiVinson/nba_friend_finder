@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 </head>
 
-<body>
+<body class="surveyBody">
     <nav class="navbar navbar-default nbaNavbar">
         <div class="container-fluid">
 
             <div class="navbar-header">
 
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" id="navText" href="/">
                     Friend Finder: NBA Edition
                 </a>
             </div>
@@ -29,15 +29,13 @@
     <!-- <div class="contanier">
         <div class="row"> -->
     <div class="panel panel-default formPanel">
-        <div class="panel-heading">
-            <h1 class="panel-title">
-                <b>Friend Finder - NBA Survey</b>
-            </h1>
-        </div>
+      
         <div class="panel-body surveyPanel">
             <form id="myForm">
+            <p class="instructions">For each of the following statements, select how much you agree or disagree</p>
                 <div class="form-group">
-                    <label for="question1">1. Even if it's a little strange, you tend to have a ritual you do before starting important tasks.</label>
+                    <label for="question1">Question 1.</label>
+                    <p class="surveyQues">Even if it's a little strange, you tend to have a ritual you do before starting important tasks.</p> 
 
                     <select id="question1" class="form-control">
                         <option>1 - Strongly Disagree</option>
@@ -49,7 +47,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="question2">2. You're more than willing to share the spolitght, even if someone else becomes the center of attention.</label>
+                    <label for="question2">Question 2. </label>
+                    <p class="surveyQues">You're more than willing to share the spolitght, even if someone else becomes the center of attention.</p> 
 
                     <select id="question2" class="form-control">
                         <option>1 - Strongly Disagree</option>
@@ -61,7 +60,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="question3">3. If someone is critical of your work and you disagree, they are definitely going to hear about it</label>
+                    <label for="question3">Question 3. </label>
+                    <p class="surveyQues">If someone is critical of your work and you disagree, they are definitely going to hear about it</p> 
 
                     <select id="question3" class="form-control">
                         <option>1 - Strongly Disagree</option>
@@ -73,8 +73,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="question4">4. If you worked with your best friends at a good company and were offered better pay and advancement
-                        at a rival company , you would definitely take it.</label>
+                    <label for="question4">Question 4. </label>
+                        <p class="surveyQues">If you worked with your best friends at a good company and were offered better pay and advancement
+                                at a rival company , you would definitely take it.</p> 
 
                     <select id="question4" class="form-control">
                         <option>1 - Strongly Disagree</option>
@@ -86,9 +87,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="question5">5. Even when it seems impossible, you come up with a last minute solution to tough situations again and
-                        again?
-                    </label>
+                    <label for="question5">Question 5.</label>
+                    <p class="surveyQues"> Even when it seems impossible, you come up with a last minute solution to tough situations again and
+                            again?</p> 
 
                     <select id="question5" class="form-control">
                         <option>1 - Strongly Disagree</option>
@@ -100,7 +101,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="question6">6. Although you make a big impact, sometimes it goes unnoticed since you're not very vocal about it.</label>
+                    <label for="question6">Question 6. </label>
+                    <p class="surveyQues">Although you make a big impact, sometimes it goes unnoticed since you're not very vocal about it.</p> 
 
                     <select id="question6" class="form-control">
                         <option>1 - Strongly Disagree</option>
@@ -112,8 +114,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="question7">7. In a critical situation, you would rather be in control of how it turns out rather than involve others
-                        since they might mess it up.</label>
+                    <label for="question7">Question 7.</label>
+                        <p class="surveyQues">In a critical situation, you would rather be in control of how it turns out rather than involve others
+                                since they might mess it up</p> 
 
                     <select id="question7" class="form-control">
                         <option>1 - Strongly Disagree</option>
@@ -125,8 +128,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="question8">8. If you worked with your best friend and s/he suddenly left for a rival company in another state, you
-                        would be be really upset.</label>
+                    <label for="question8">Question 8. </label>
+                        <p class="surveyQues">If you worked with your best friend and s/he suddenly left for a rival company in another state, you
+                                would be be really upset.</p> 
 
                     <select id="question8" class="form-control">
                         <option>1 - Strongly Disagree</option>
@@ -139,7 +143,8 @@
 
 
                 <div class="form-group">
-                    <label for="question9">9. It seems like no matter what, people are just as likely to hate you as they are to love you.</label>
+                    <label for="question9">Question 9.</label>
+                    <p class="surveyQues">It seems like no matter what, people are just as likely to hate you as they are to love you.</p> 
 
                     <select id="question9" class="form-control">
                         <option>1 - Strongly Disagree</option>
@@ -151,7 +156,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="question10">10. For better or worse, you have a signature look or style that people tend to notice.</label>
+                    <label for="question10">Question 10.</label>
+                    <p class="surveyQues">For better or worse, you have a signature look or style that people tend to notice.</p> 
 
                     <select id="question10" class="form-control">
                         <option>1 - Strongly Disagree</option>
@@ -162,7 +168,7 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary submitBtn">Submit</button>
+                <button type="submit" class="btn btn-danger submitBtn">Get Your Match!</button>
 
             </form>
 
@@ -192,11 +198,13 @@
         </div>
         <!-- Add footer -->
 
-        <div class="footer">
-                <p><a href="/api/friends">Link to API friends</a> | 
-                <a href="/">Homepage</a> | <a href="https://github.com/LiVinson/nba_friend_finder" target="_blank">Github Repo</a></p>
+     
 
-        </div>
+    </div>
+
+    <div class="footer">
+            <p class="footerText"><a href="/api/friends">Link to API friends</a> | 
+            <a href="/">Homepage</a> | <a href="https://github.com/LiVinson/nba_friend_finder" target="_blank">Github Repo</a></p>
 
     </div>
     <script src="https://code.jquery.com/jquery.js"></script>

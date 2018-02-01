@@ -122,7 +122,7 @@ $("#closeModal").on("click", function (event) {
 });
 
 $("#myModal").on("hidden.bs.modal", function () {
-    alert("Modal hidden!")
+
     $(".modal-body").html("");
 
 });
