@@ -2,7 +2,6 @@ body {
     background-color:cornsilk
 }
 
-
 /* Jumbotron */
 .jumbotron {
     background: #1D428A;
@@ -64,32 +63,50 @@ body {
     font-size:22px;
 }
 
+.surveyPanel{
+    padding-left:30px;
+    padding-right:30px
+}
 
 .formPanel{
     margin-left:60px;
     margin-right:60px;
 }
 
-.surveyPanel{
-    padding-left:30px;
-    padding-right:30px
-}
-
 form label{
     font-size: 16px;
-}
+    margin-bottom:0;
 
-.panel-title {
-    font-size:24px;
 }
+/* .panel-title {
+    font-size:24px;
+} */
 
 .form-control{
     width:50%;
 }
+
 .instructions{
     font-size:20px;
     color:#1D428A;
 }
+
+.surveyQues{
+    font-size:16px;
+}
+
+/* MOdal */
+.modal-title{
+    text-align:center;
+    color:#1D428A;
+    font-size:24px;
+}
+
+.modal-body{
+    text-align:center;
+    font-size:24px;
+}
+
 /* Footer */
 .footer{
     background-color:red;
@@ -103,10 +120,3 @@ form label{
 
 }
 
-.surveyQues{
-    font-size:16px;
-}
-
-label{
-    margin-bottom:0;
-}
