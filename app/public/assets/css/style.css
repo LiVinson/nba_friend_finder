@@ -32,3 +32,7 @@ form label{
 .form-control{
     width:50%;
 }
+
+.buttonsAppear{
+    display: none;
+}
