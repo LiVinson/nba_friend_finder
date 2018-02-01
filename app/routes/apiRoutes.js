@@ -1,37 +1,31 @@
 var nbaMatches = require("../data/playerData");
-// console.log(nbaMatches);
-// var nbaArr = nbaMatches;
 
 module.exports = function (app) {
 
     app.get("/api/friends", function (req, res) {
-        res.json(nbaMatches)
+        res.json(nbaMatches);
     });
 
-    // app.post("/api/friends", function (req, res){
-    //     var playerMatch = req.body;
-    //     console.log(`Request received from post : ${JSON.stringify(playerMatch)}`);
-
-    //     res.json(playerMatch);
-
-    // })
 
     app.post("/api/friends", function (req, res) {
 
-        var userArr = req.body; //This is not displaying...
+        var userArr = req.body.userSurvey;
         console.log(`User scores once post request is received:`);
-        console.log(JSON.stringify(userArr));
+        console.log(userArr);
+        console.log(userArr[0]);
+        console.log (typeof userArr[0]);
+
         var lowScore = 40; //Highest difference possible
         var playerMatch;
 
         //loops through nbaPlayer array, and compares each index in score array to corresponding user index, calculating difference
         nbaMatches.forEach(function (player) {
             var compareArr = player.scores;
-            console.log(compareArr);
+            // console.log(compareArr);
             var diffScore = 0;
 
             for (var i = 0; i < userArr.length; i++) {
-                var diffTemp = (userArr[i] - compareArr[i])
+                var diffTemp = (parseInt(userArr[i]) - compareArr[i])
                 if (diffTemp < 0) {
                     diffTemp *= (-1)
                 }

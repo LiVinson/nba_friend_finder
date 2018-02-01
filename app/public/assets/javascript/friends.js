@@ -13,9 +13,9 @@ var urlArr = [
     "/assets/images/giannis_antetokounmpo.jpg"
 ];
 
-    $("#mainImg1").attr("src", urlArr[Math.floor(Math.random() * urlArr.length)]);
-    $("#mainImg2").attr("src", urlArr[Math.floor(Math.random() * urlArr.length)]);
-    $("#mainImg3").attr("src", urlArr[Math.floor(Math.random() * urlArr.length)]);
+$("#mainImg1").attr("src", urlArr[Math.floor(Math.random() * urlArr.length)]);
+$("#mainImg2").attr("src", urlArr[Math.floor(Math.random() * urlArr.length)]);
+$("#mainImg3").attr("src", urlArr[Math.floor(Math.random() * urlArr.length)]);
 
 
 //Called when user submits survey
@@ -23,7 +23,7 @@ function findMatch(userScores) {
     $("#myForm")[0].reset();
 
     console.log("RIght before post request");
-    console.log(userScores);
+    console.log(userScores.userSurvey);
 
     $.post("/api/friends", userScores, function (player) {
         console.log(`Response received back from post request: ${player.name}`)
@@ -41,12 +41,12 @@ function findMatch(userScores) {
         }).done(function (response) { //Once the ajax request receives a response run the following anonymous callback function:
             player.gifURL = response.data[0].images.fixed_width.url
 
-            //Fill in data in modal
+            //Fill in data in modal: Title, match percent, gif, and player info
+            
             $(".modal-title").html(`It's a Match: <b>${player.name}</b>`);
-
-            $(".modal-body").prepend(`<p>You and ${player.name} are an ${player.matchPct}% match!<br>`);
-            $("#matchPic").attr("src", player.gifURL);
-
+            $(".modal-body").append(`<p>You and ${player.name} are an ${player.matchPct}% match!<br>`);                 
+            $(".modal-body").append("<div class = 'img_wrapper center-block'><div>");
+            $(".img_wrapper").append(`<img class='matchPic' src=${player.gifURL} alt =${player.name} gif>`)
             $(".modal-body").append(`<br><p>${player.info}</p>`);
 
             //Make modal appear
@@ -73,30 +73,26 @@ $(".submitBtn").on("click", function (event) {
         $("#question9").val().substr(0, 1),
         $("#question10").val().substr(0, 1),
     ]);
-
     //add steps to put form back to default
 
     console.log(userSurvey);
+    var userData = {
+        userSurvey
+    };
 
     //Compare userData to each array in nbaMatches array
-    findMatch(userSurvey);
+    findMatch(userData);
 });
 
 $("#closeModal").on("click", function (event) {
     event.preventDefault();
     $(".buttonsAppear").attr("display", "block");
+   
+});
 
-})
-//Remaining Steps:
-// 1. Fix button in modal so it can go back to home or restart the survey
-// 2. Add links to api data on home and survey page
-// 3. Add style, color, fonts, etc to home page
-// 4. Add style, color, fonts, etc to survey page
-// 5. Add info for each player
-// 6. Update gif that comes back from giphy API
-// 7. Add style, color, fonts, etc to modal
-//8. Add dot.env for GIPHY API
-//9. Get working on Heroku
-//10. Take a video
-//11. Update readMe
-//12. Turn In - Due Thursday
+$("#myModal").on("hidden.bs.modal", function(){
+    alert("Modal hidden!")
+    $(".modal-body").html("");
+
+});
+
