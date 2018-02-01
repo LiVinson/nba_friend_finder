@@ -47,15 +47,32 @@ body {
 }
 
 /* Survey Page */
+.surveyBody{
+    background-color:#1D428A;
+}
+/* Survey navbar */
+
+.nbaNavbar {
+    background-color:red;
+    border-bottom:#1D428A;
+
+}
+
+#navText{
+    color:white;
+    font-family: Impact, Charcoal, sans-serif;
+    font-size:22px;
+}
+
 
 .formPanel{
-    margin-left:25px;
-    margin-right:25px;
+    margin-left:60px;
+    margin-right:60px;
 }
 
 .surveyPanel{
-    padding-left:25px;
-    padding-right:25px
+    padding-left:30px;
+    padding-right:30px
 }
 
 form label{
@@ -69,7 +86,10 @@ form label{
 .form-control{
     width:50%;
 }
-
+.instructions{
+    font-size:20px;
+    color:#1D428A;
+}
 /* Footer */
 .footer{
     background-color:red;
@@ -81,4 +101,12 @@ form label{
     text-align:center;
     font-size: 16px;
 
+}
+
+.surveyQues{
+    font-size:16px;
+}
+
+label{
+    margin-bottom:0;
 }
