@@ -1,70 +1,55 @@
-var path = require("path");
-
-var nbaArr = [
-    {
-        name: "Lebron James",
-        image: "../public/assets/images/james.png/",
-        scores: [2, 4, 5, 1, 4, 3, 3, 5, 1, 2]//
-    }, {
-        name: "Kevin Durant",
-        image: "../public/assets/images/durant.png/",
-        scores: [3, 1, 1, 5, 2, 5, 1, 4, 3, 4] //29
-    }, {
-        name: "Kyrie Irving",
-        image: "../public/assets/images/irving.png/",
-        scores: [4, 2, 5, 2, 3, 5, 5, 1, 4, 5] //33
-    },
-    {
-        name: "Russell Westbrook",
-        image: "../public/assets/images/irving.png/",
-        scores: [1, 2, 3, 2, 1, 4, 2, 3, 5, 2] //
-    },
-    {
-        name: "Stephen Curry",
-        image: "../public/assets/images/irving.png/",
-        scores: [4, 1, 2, 1, 4, 5, 2, 3, 1, 2] //
-    },
-    {
-        name: "Kawhi Leonard",
-        image: "../public/assets/images/irving.png/",
-        scores: [2, 5, 1, 2, 1, 2, 4, 2, 1, 3] //
-    },
-    {
-        name: "Lonzo Ball",
-        image: "../public/assets/images/irving.png/",
-        scores: [1, 4, 2, 3, 2, 4, 1, 2, 1, 3] //
-    },
-    {
-        name: "James Harden",
-        image: "../public/assets/images/irving.png/",
-        scores: [2, 5, 2, 4, 1, 2, 5, 1, 3, 3] //
-    },
-    {
-        name: "Kristaps Porzingis",
-        image: "../public/assets/images/irving.png/",
-        scores: [3, 1, 5, 3, 1, 2, 4, 4, 2, 1]  //
-    },
-    {
-        name: "Giannis Antetokounmpo",
-        image: "../public/assets/images/irving.png/",
-        scores: [1, 4, 5, 2, 3, 1, 2, 4, 1, 2] //
-    },
-];
+var nbaMatches = require("../data/playerData");
+// console.log(nbaMatches);
+// var nbaArr = nbaMatches;
 
 module.exports = function (app) {
 
-        app.get("/api/friends", function (req, res) {
-            res.json(nbaArr)
+    app.get("/api/friends", function (req, res) {
+        res.json(nbaMatches)
+    });
+
+    // app.post("/api/friends", function (req, res){
+    //     var playerMatch = req.body;
+    //     console.log(`Request received from post : ${JSON.stringify(playerMatch)}`);
+
+    //     res.json(playerMatch);
+
+    // })
+
+    app.post("/api/friends", function (req, res) {
+
+        var userArr = req.body; //This is not displaying...
+        console.log(`User scores once post request is received:`);
+        console.log(JSON.stringify(userArr));
+        var lowScore = 40; //Highest difference possible
+        var playerMatch;
+
+        //loops through nbaPlayer array, and compares each index in score array to corresponding user index, calculating difference
+        nbaMatches.forEach(function (player) {
+            var compareArr = player.scores;
+            console.log(compareArr);
+            var diffScore = 0;
+
+            for (var i = 0; i < userArr.length; i++) {
+                var diffTemp = (userArr[i] - compareArr[i])
+                if (diffTemp < 0) {
+                    diffTemp *= (-1)
+                }
+                diffScore += diffTemp;
+            };
+            console.log(diffScore);
+            if (diffScore < lowScore) {
+                console.log(`Better match found!:${player.name} `);
+                lowScore = diffScore;
+                playerMatch = player;
+            }
         });
+        
+        var matchScore = parseInt(((40 - lowScore) / 40) * 100);
+        playerMatch.matchPct = matchScore;
+        console.log(playerMatch);
 
-        app.post("/api/friends", function (req, res){
-            var playerMatch = req.body;
-            console.log(`Request received from post : ${JSON.stringify(playerMatch)}`);
-
-            res.json(playerMatch);
-
-        })
-
-
+        res.json(playerMatch);
+    })
 
 }
