@@ -70,12 +70,12 @@ function findMatch(userScores) {
                 limit: 1, //Return 1 gifs (Default 25)
             }
         }).done(function (response) { //Once the ajax request receives a response run the following anonymous callback function:
-            player.gifURL = response.data[0].images.fixed_width.url
-
-            //Fill in data in modal: Title, match percent, gif, and player info
+            player.gifURL = response.data[0].images.fixed_width.url;
+           
+            //Fill in data in modal: Title,  percent, gif, and player info
 
             $(".modal-title").html(`It's a Match: <b>${player.name}</b>`);
-            $(".modal-body").append(`<p>You and ${player.name} are an ${player.matchPct}% match!<br>`);
+            $(".modal-body").append(`<p>You and ${player.name} are a <b>${player.matchPct}% match!<b><br>`);
             $(".modal-body").append("<div class = 'img_wrapper center-block'><div>");
             $(".img_wrapper").append(`<img class='matchPic' src=${player.gifURL} alt =${player.name} gif>`)
             $(".modal-body").append(`<br><p>${player.info}</p>`);
