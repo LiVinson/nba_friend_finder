@@ -1,6 +1,6 @@
 # NBA Friend Finder
 
-The NBA Friend Finder application is full-stack sitethat allows users to complete a 10 question survey to find out which NBA superstar they are most like. Once the survey is complete, the name and a gif from the GIPHY API of the user's match is displayed in a modal. 
+The NBA Friend Finder application is full-stack site that allows users to complete a 10 question survey to find out which NBA superstar they are most like. Once the survey is complete, the name and a gif from the GIPHY API of the user's match is displayed in a modal. 
 
 NBA Friend Finder is deployed at Heroku: [Friend Finder](https://sheltered-citadel-34944.herokuapp.com/)
 
