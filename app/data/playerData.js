@@ -2,7 +2,7 @@ var nbaScores = [{
         name: "Lebron James",
         imageURL: "/assets/images/lebron_james.jpg",
         scores: [5, 4, 5, 3, 5, 1, 5, 4, 5, 2],
-        info: "Cleveland Caveliers, Power Foward "
+        info: "LA Lakers, Power Foward "
     }, {
         name: "Kevin Durant",
         imageURL: "/assets/images/kevin_durant.jpg",
@@ -30,7 +30,7 @@ var nbaScores = [{
         name: "Kawhi Leonard",
         imageURL: "/assets/images/kawhi_leonard.jpg",
         scores: [1, 4, 1, 3, 4, 5, 3, 3, 1, 4],
-        info: "San Antonio Spurs, Small Forward"
+        info: "Toronto Raptors, Small Forward"
     },
     {
         name: "Lonzo Ball",
