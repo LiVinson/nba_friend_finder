@@ -1,46 +1,20 @@
-// ==============================================================================
-// DEPENDENCIES
-// Series of npm packages that we will use to give our server useful functionality
-// ==============================================================================
+const express = require("express");
+const bodyParser = require("body-parser");
 
-var express = require("express");
-var bodyParser = require("body-parser");
-// var path = require("path");
+const app = express();
 
-// Tells node that we are creating an "express" server
-var app = express();
-
-// Sets an initial port. We"ll use this later in our listener
-var PORT = process.env.PORT || 8080;
+// Sets an initial port.
+const PORT = process.env.PORT || 8080;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-
-
-// ================================================================================
-// Express.static will allow you to set a static directory for things like your
-// front end javascript, images, etc
-// ================================================================================
 app.use(express.static(__dirname + "/app/public"));
 
-// ================================================================================
-// ROUTER
-// The below points our server to a series of "route" files.
-// These routes give our server a "map" of how to respond when users visit or request data from various URLs.
-// ================================================================================
-// require("./routes/apiRoutes")(app);
-require("./app/routes/htmlRoutes") (app);
-require("./app/routes/apiRoutes") (app);
-
-// =============================================================================
-// LISTENER
-// The below code effectively "starts" our server
-// =============================================================================
+require("./app/routes/htmlRoutes")(app);
+require("./app/routes/apiRoutes")(app);
 
 app.listen(PORT, function() {
-    console.log("App listening on PORT: " + PORT);
-  });
-  
+  console.log("App listening on PORT: " + PORT);
+});
