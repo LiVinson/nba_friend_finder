@@ -1,49 +1,36 @@
-var nbaMatches = require("../data/playerData");
+const nbaMatches = require("../data/playerData");
 
-module.exports = function (app) {
+module.exports = app => {
+  app.get("/api/friends", (req, res) => {
+    res.json(nbaMatches);
+  });
 
-    app.get("/api/friends", function (req, res) {
-        res.json(nbaMatches);
+  app.post("/api/friends", (req, res) => {
+    const userArr = req.body.userSurvey;
+    let lowScore = 40; //Highest difference possible
+    let playerMatch;
+
+    //loops through nbaPlayer array, and compares each index in score array to corresponding user index, calculating difference
+    nbaMatches.forEach(player => {
+      const compareArr = player.scores;
+      let diffScore = 0;
+
+      for (let i = 0; i < userArr.length; i++) {
+        let diffTemp = parseInt(userArr[i]) - compareArr[i];
+        if (diffTemp < 0) {
+          diffTemp *= -1;
+        }
+        diffScore += diffTemp;
+      }
+
+      if (diffScore < lowScore) {
+        lowScore = diffScore;
+        playerMatch = player;
+      }
     });
 
-
-    app.post("/api/friends", function (req, res) {
-
-        var userArr = req.body.userSurvey;
-        console.log(`User scores once post request is received:`);
-        console.log(userArr);
-        console.log(userArr[0]);
-        console.log (typeof userArr[0]);
-
-        var lowScore = 40; //Highest difference possible
-        var playerMatch;
-
-        //loops through nbaPlayer array, and compares each index in score array to corresponding user index, calculating difference
-        nbaMatches.forEach(function (player) {
-            var compareArr = player.scores;
-            // console.log(compareArr);
-            var diffScore = 0;
-
-            for (var i = 0; i < userArr.length; i++) {
-                var diffTemp = (parseInt(userArr[i]) - compareArr[i])
-                if (diffTemp < 0) {
-                    diffTemp *= (-1)
-                }
-                diffScore += diffTemp;
-            };
-            console.log(diffScore);
-            if (diffScore < lowScore) {
-                console.log(`Better match found!:${player.name} `);
-                lowScore = diffScore;
-                playerMatch = player;
-            }
-        });
-        
-        var matchScore = parseInt(((40 - lowScore) / 40) * 100);
-        playerMatch.matchPct = matchScore;
-        console.log(playerMatch);
-
-        res.json(playerMatch);
-    })
-
-}
+    const matchScore = parseInt(((40 - lowScore) / 40) * 100);
+    playerMatch.matchPct = matchScore;
+    res.json(playerMatch);
+  });
+};
